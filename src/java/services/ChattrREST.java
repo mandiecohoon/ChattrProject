@@ -34,7 +34,7 @@ import javax.ws.rs.core.Response;
 @RequestScoped
 public class ChattrREST {
 
-    @PersistenceContext(unitName="WebApplication6PU")
+    @PersistenceContext(unitName="ChattrProjectPU")
     EntityManager em;
 
     List<Chattr> roomList;

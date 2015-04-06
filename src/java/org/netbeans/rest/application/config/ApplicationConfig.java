@@ -13,7 +13,7 @@ import javax.ws.rs.core.Application;
  *
  * @author Amanda Cohoon - c0628569
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("rs")
 public class ApplicationConfig extends Application {
 
     @Override
