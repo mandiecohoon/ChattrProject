@@ -45,7 +45,7 @@ public class ChattrREST {
     @GET
     public Response getAll() {
         JsonArrayBuilder json = Json.createArrayBuilder();
-        Query q = em.createQuery("SELECT r FROM room r");
+        Query q = em.createQuery("SELECT r FROM Chattr r");
         roomList = q.getResultList();
         for (Chattr r : roomList) {
             json.add(r.toJSON());
@@ -56,7 +56,7 @@ public class ChattrREST {
     @GET
     @Path("{id}")
     public Response getById(@PathParam("id") int id) {
-        Query q = em.createQuery("SELECT r FROM room r WHERE r.roomId = :roomId");
+        Query q = em.createQuery("SELECT r FROM Chattr r WHERE r.roomId = :roomId");
         q.setParameter("roomId", id);
         Chattr r = (Chattr) q.getSingleResult();
         String out = r.toJSON().toString();
@@ -85,7 +85,7 @@ public class ChattrREST {
         Response result;
         try {
             transaction.begin();
-            Chattr r = (Chattr) em.createNamedQuery("Room.findByRoomId")
+            Chattr r = (Chattr) em.createNamedQuery("Chattr.findByRoomId")
                     .setParameter("roomId", json.getInt("roomId"))
                     .getSingleResult();
             r.setRoomName(json.getString("roomName"));
@@ -105,7 +105,7 @@ public class ChattrREST {
         Response result;
         try {
             transaction.begin();
-            Chattr r = (Chattr) em.createNamedQuery("Room.findByRoomId")
+            Chattr r = (Chattr) em.createNamedQuery("Chattr.findByRoomId")
                     .setParameter("roomId", id).getSingleResult();
             em.remove(r);
             transaction.commit();
