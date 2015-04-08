@@ -22,7 +22,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "Chattr.findAll", query = "SELECT r FROM Chattr r"),
-    @NamedQuery(name = "Chattr.findByProductId", query = "SELECT r FROM Chattr r WHERE r.roomId = :roomId"),
+    @NamedQuery(name = "Chattr.findByRoomId", query = "SELECT r FROM Chattr r WHERE r.roomId = :roomId"),
     @NamedQuery(name = "Chattr.findByName", query = "SELECT r FROM Chattr r WHERE r.roomName = :roomName")
 })
 public class Chattr implements Serializable  {
